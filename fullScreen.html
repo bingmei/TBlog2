@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>o365与企业号绑定演示</title>
+<link rel="shortcut icon" href="ico/favicon.ico">
+<style>
+body{
+	padding: 0;
+	margin:0;
+	background-color: #e9edf5;
+	background-image: url(img/video-bg-1.png);
+	background-repeat: no-repeat;
+	/*background-size: 100% auto;*/
+	background-position: right top;
+}
+h1{
+	margin: 30px auto;
+	/*text-align: center;*/
+	/*padding: 50px;*/
+	font-family: 'Microsoft YaHei';
+	color: rgb(15, 101, 199);
+	font-weight: lighter;
+	font-size: 24px;
+	width: 90%;
+}
+video{
+	width: 85%;
+	height: auto;
+	display: block;
+	margin: 0px auto 100px;
+	/*max-width:50%;*/
+	border: 15px solid #333;
+}
+/*自适应屏幕大小*/
+@media only screen and (min-width: 1366px) {
+video {
+  width: 65%;
+}
+h1{
+	text-align: center;
+	margin: 40px auto;
+}
+}
+</style>
+</head>
+<body>
+<div>
+	<h1 style="">Office 365 与 微信企业号 账户绑定演示</h1>
+	<video id="myVideo" style="" controls="controls">  
+	    <source src="./video.mp4" type="video/mp4"></source> 
+	</video>  
+</div> 
+</body>
+<script>
+// 定义切换视频全屏模式函数
+function toggleFullScreen(){
+	var elem = document.getElementById("myVideo");
+	if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+	if (elem.requestFullscreen) {
+	  elem.requestFullscreen();
+	} else if (elem.mozRequestFullScreen) {
+	  elem.mozRequestFullScreen();
+	} else if (elem.webkitRequestFullscreen) {
+	  elem.webkitRequestFullscreen();
+	}
+}else{
+	if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+}}
+// 用户按enter键切换全屏
+document.addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    toggleFullScreen();
+  }
+}, false);
+</script>
+</html>
